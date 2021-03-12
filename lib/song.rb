@@ -42,7 +42,7 @@ class Song
     
     def self.artist_count
         @@artists.each do |artist|
-            @@hash_artist[artist] = @@hash_artist[gen].to_i + 1
+            @@hash_artist[artist] = @@hash_artist[artist].to_i + 1
         end
         @@hash_artist
     end
