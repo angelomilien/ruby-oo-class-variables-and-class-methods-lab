@@ -2,6 +2,8 @@
 
 class Song
    
+    require "pry"
+
     attr_accessor :artist, :genre, :name
      
     @@artists = []
@@ -17,34 +19,31 @@ class Song
        @@artists << @artist
        @@genres << @genre
        @@count += 1
+    end
 
+    def self.count
+        @@count            
+    end
     
+    def self.artists
+        @@artists.uniq
     end
-
-def self.count
-    @@count            
-end
-
-def self.artists
-    @@artists.uniq
-end
-
-def self.genres
-   @@genres.uniq 
-end
-
-def self.genre_count
-    @@genres.each do |gen|
-        @@hash_genres[gen] = @@hash_genres[gen].to_i + 1
+    
+    def self.genres
+       @@genres.uniq 
     end
-    @@hash_genres
-end
-
-def self.artist_count
-    @@artists.each do |gen|
-        @@hash_artist[gen] = @@hash_artist[gen].to_i + 1
+    
+    def self.genre_count
+        @@genres.each do |gen|
+            @@hash_genres[gen] = @@hash_genres[gen].to_i + 1
+        end
+        @@hash_genres
     end
-    @@hash_artist
-end
-
+    
+    def self.artist_count
+        @@artists.each do |artist|
+            @@hash_artist[artist] = @@hash_artist[gen].to_i + 1
+        end
+        @@hash_artist
+    end
 end
